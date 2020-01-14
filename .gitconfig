@@ -1,0 +1,14 @@
+[user]
+    name = "Hiroki Takeda"
+    email = hiroki.takeda.main@gmail.com
+[color]
+    ui = auto
+[http]
+    sslVerify = false
+[alias]
+    st = status
+    co = checkout
+    cm = commit -m
+    hist = log --graph
+[url "git@github.com:"]
+    InsteadOf = https://github.com/
