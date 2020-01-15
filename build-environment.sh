@@ -54,3 +54,10 @@ ssh-keygen -t rsa # and upload .ssh/id_rsa.pub to github
 # manual: /etc/ssh/sshd_config ssh-copy-id under "PasswordAuthentication yes" -> modify "PasswordAuthentication no" # "sudo service sshd restart" is needed
 # should be "PermitRootLogin no"
 # add name .ssh/config
+
+# GPU
+# win -> software and update -> add driver -> if nothing, then...
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+# win -> software and update -> add driver -> choose proper driver and install it
+
