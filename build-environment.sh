@@ -14,7 +14,7 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
 yes | sudo apt install git emacs24
 
 # replace dotfiles
-git clone https://github.com/jskhtakeda/dotfiles.git ~/dotfiles
+git clone git@github.com:hi-takeda/dotfiles.git ~/dotfiles
 mv ~/.bashrc ~/.bashrc.back
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
