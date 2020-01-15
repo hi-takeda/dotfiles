@@ -61,3 +61,6 @@ sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt update
 # win -> software and update -> add driver -> choose proper driver and install it
 
+# Monitoring CPU, memory, net, disk using
+yes | sudo apt install indicator-multiload
+
