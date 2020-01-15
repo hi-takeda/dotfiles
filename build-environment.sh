@@ -29,6 +29,7 @@ sudo rosdep init
 rosdep update
 yes | sudo apt install python-rosinstall
 yes | sudo apt install ros-kinetic-rosemacs
+yes | sudo apt install python-catkin-tools
 
 # emacs
 # manual: install packages by "M-x package-list-packages"
