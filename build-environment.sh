@@ -67,3 +67,6 @@ yes | sudo apt install indicator-multiload
 
 # do NOT distinct oomoji komoji
 echo "set completion-ignore-case on" >> /etc/inputrc # then C-x, C-r on terminal
+
+# keyboard shortcut
+sudo apt install  compizconfig-settings-manager # window management -> grid
