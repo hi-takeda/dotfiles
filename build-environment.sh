@@ -70,3 +70,7 @@ echo "set completion-ignore-case on" >> /etc/inputrc # then C-x, C-r on terminal
 
 # keyboard shortcut
 sudo apt install  compizconfig-settings-manager # window management -> grid
+
+# stop warning "System problem detected"
+sudo rm /var/crash/*
+sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
