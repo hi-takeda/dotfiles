@@ -125,6 +125,7 @@ alias grep='grep --exclude-dir=.svn --color=always'
 alias clip='xclip -selection clipboard'
 alias open='gnome-open'
 alias e='emacs -nw'
+alias clearcashe='sudo sysctl -w vm.drop_caches=3'
 
 # default edittor
 export EDITOR='emacs -nw'
