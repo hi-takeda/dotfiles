@@ -130,17 +130,25 @@ alias clearcashe='sudo sysctl -w vm.drop_caches=3'
 # default edittor
 export EDITOR='emacs -nw'
 
-# Terminal
-export PS1='\[\033[01;36m\][$(roscd; echo `pwd`|rev|cut -f2 -d '/'|rev|cut -c 1-3)] \[\033[01;32m\]\h\[\033[01;33m\] \w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
-
 # ROS sources
+export ROSSOURCE=$(cat ~/.rossourcelast)
+source $ROSSOURCE
+export PS3="select item: "
 function rossource () {
     select VAR in ros $(ls ~/catkin_ws)
     do
         if [ $VAR = ros ]; then
-            source /opt/ros/kinetic/setup.bash; break
+            ROSSOURCE=/opt/ros/kinetic/setup.bash; break
         else
-            source ~/catkin_ws/$VAR/devel/setup.bash; break
+            ROSSOURCE=~/catkin_ws/$VAR/devel/setup.bash; break
         fi
     done
+    source $ROSSOURCE
+    echo $ROSSOURCE > ~/.rossourcelast
 }
+
+# Terminal
+export PS1='\[\033[01;36m\][$(roscd; echo `pwd`|rev|cut -f2 -d '/'|rev|cut -c 1-3)] \[\033[01;32m\]\h\[\033[01;33m\] \w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
+
+# Share history between terminals
+export PROMPT_COMMAND="history -a; history -c; history -r"
