@@ -134,4 +134,13 @@ export EDITOR='emacs -nw'
 export PS1='\[\033[01;36m\][$(roscd; echo `pwd`|rev|cut -f2 -d '/'|rev|cut -c 1-3)] \[\033[01;32m\]\h\[\033[01;33m\] \w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
 
 # ROS sources
-source /opt/ros/kinetic/setup.bash
+function rossource () {
+    select VAR in ros $(ls ~/catkin_ws)
+    do
+        if [ $VAR = ros ]; then
+            source /opt/ros/kinetic/setup.bash; break
+        else
+            source ~/catkin_ws/$VAR/devel/setup.bash; break
+        fi
+    done
+}
