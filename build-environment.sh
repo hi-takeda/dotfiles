@@ -19,7 +19,9 @@ mv ~/.bashrc ~/.bashrc.back
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/init.el ~/.emacs.d/init.el
+touch ~/dotfiles/.rossourcelast
 ln -sf ~/dotfiles/.rossourcelast ~/.rossourcelast
+echo "/opt/ros/kinetic/setup.bash" > ~/.rossourcelast
 
 # install ROS
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
