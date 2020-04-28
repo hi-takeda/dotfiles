@@ -152,3 +152,8 @@ export PS1='\[\033[01;36m\][$(roscd; echo `pwd`|rev|cut -f2 -d '/'|rev|cut -c 1-
 
 # Share history between terminals
 export PROMPT_COMMAND="history -a; history -c; history -r"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
