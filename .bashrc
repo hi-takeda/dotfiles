@@ -157,3 +157,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# rtags
+alias rtagsserver="rdm --daemon"
+alias loadcompilecommands='rc --load-compile-commands .'
+alias roscdbuild="cd `cut -f 1-5 -d '/' ~/.rossourcelast`/build"
