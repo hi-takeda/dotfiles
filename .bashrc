@@ -160,5 +160,25 @@ eval "$(pyenv init -)"
 
 # rtags
 alias rtagsserver="rdm --daemon"
-alias loadcompilecommands='rc --load-compile-commands .'
-alias roscdbuild="cd `cut -f 1-5 -d '/' ~/.rossourcelast`/build"
+alias loadjson='rc --load-compile-commands .'
+alias roscdbuild="cd `rev ~/.rossourcelast | cut -f3- -d '/' | rev`/build"
+alias cb="catkin build -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
+
+function concatenatejson () {
+    roscdbuild
+    concatenated="compile_commands.json"
+    echo "[" > $concatenated
+    first=1
+    for d in *
+    do
+        f="$d/compile_commands.json"
+        if test -f "$f"; then
+            if [ $first -eq 0 ]; then
+                echo "," >> $concatenated
+            fi
+            cat $f | sed '1d;$d' >> $concatenated
+        fi
+        first=0
+    done
+    echo "]" >> $concatenated
+}
